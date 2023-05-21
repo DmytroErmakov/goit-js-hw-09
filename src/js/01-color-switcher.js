@@ -1,4 +1,4 @@
-let nIntervId;
+let nIntervId = null;
 
 const refs = {
   startBtn: document.querySelector('button[data-start]'),
@@ -24,7 +24,6 @@ function onStoptBtnChangeColor() {
   refs.startBtn.removeAttribute('disabled');
 
   clearInterval(nIntervId);
-  nIntervId = null;
 }
 
 function getRandomHexColor() {
