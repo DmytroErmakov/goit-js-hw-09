@@ -3,9 +3,10 @@ const refs = {
   delay: document.querySelector('[name="delay"]'),
   step: document.querySelector('[name="step"]'),
   amount: document.querySelector('[name="amount"]'),
+  submit: document.querySelector('[type="submit"]'),
 };
 
-refs.form.addEventListener('click', onPromiseCreate);
+refs.submit.addEventListener('click', onPromiseCreate);
 
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
@@ -35,7 +36,7 @@ function onPromiseCreate(event) {
   }
 
   for (let i = 1; i <= amount; i += 1) {
-    let promiseDelay = valueDelay + step * i;
+    let promiseDelay = valueDelay + step * (i - 1);
 
     createPromise(i, promiseDelay)
       .then(({ position, delay }) => {
